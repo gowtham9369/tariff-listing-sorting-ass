@@ -1,0 +1,155 @@
+// Media queries and mixins
+
+@mixin hide-on-tablet {
+    @media (max-width: 992px) {
+        display: none;
+    }
+}
+
+@mixin hide-on-mobile {
+    @media (max-width: 576px) {
+        display: none;
+    }
+}
+
+.logo {
+    width: 150px; // Adjust width as needed
+    height: 50px; // Adjust height as needed
+    background-image: url('https://static.verivox.de/assets/images/navigational-elements/logo/logo-a2793f0bf4.svg');
+    background-size: contain; // Scale the image to fit the container
+    background-repeat: no-repeat; // Prevent the image from repeating
+    background-position: center; // Center the image in the container
+  }
+  
+.container {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  thead {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  ul.list-unstyled {
+    margin: 0;
+    padding-left: 0;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .loader {
+    margin-top: 50px;
+  }
+  
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.3rem;
+  }
+
+  .price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .price{
+      font-weight: 500;
+    }
+    button {
+      width: 100%;
+      background: #ff5600;  // Make the button full-width if you prefer
+    }
+    button:hover {
+        width: 100%;
+        background: #c40;  // Make the button full-width if you prefer
+    }
+  }
+  
+  .table-responsive {
+    .table {
+      .speed-container {
+        display: flex;
+        flex-direction: column;
+  
+        .speed-item {
+          display: flex;
+          align-items: center;
+  
+          i {
+            margin-right: 5px;
+          }
+  
+          &.upload {
+            margin-top: 5px;
+          }
+        }
+      }
+  
+      .benefits-header,
+      .benefits-column {
+        @include hide-on-tablet;
+      }
+    }
+  }
+  
+  // Hiding the download value on mobile devices
+  
+  @media (max-width: 576px) {
+    .speed-item:first-child {
+      display: none;
+    }
+  }
+
+  .speed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .speed-label {
+      font-weight: bold;
+      margin-bottom: 5px; // Space between label and icon
+    }
+  
+    .speed-item {
+      display: flex;
+      align-items: center;
+      border: 1px solid transparent; // Add border but make it invisible by default
+      padding: 5px;
+      border-radius: 5px;
+      margin-bottom: 10px; // Space between download and upload sections
+  
+      i {
+        margin-right: 5px;
+        padding: 5px;
+        border-radius: 50%; // Make the icon's background circular
+      }
+    }
+  
+    .download {
+      background: #fe8a03; // Black border for download
+      i {
+        color: #000;
+      }
+    }
+  
+    .upload {
+      background: #828282; // Yellow border for upload
+      i {
+        color: #fff;
+      }
+    }
+  }
+  
+  
